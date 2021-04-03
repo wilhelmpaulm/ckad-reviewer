@@ -24,6 +24,10 @@
 
 - creates a deployment in the specified namescpace
 
+> `kubectl expose deployment examplehttpapp --port 80`
+
+- exposes a deployment by creating a service
+
 ## Get deployments, pods, etc.
 
 > `kubectl get namespaces` or `kubectl get ns`
@@ -36,6 +40,8 @@
 - the pods reponsible for managing the other pods
 
 > `kubectl get deployments`
+
+> `kubectl get services`
 
 > `kubectl get pods`
 
@@ -57,6 +63,14 @@
 - get the pod name from the commands above
 - returns the information as well as events that happened on the pod
 - auto complete works here
+
+> `kubectl describe service <service-name>`
+
+## Checking cpu and memory usage
+
+> `kubectl top node`
+
+> `kubectl top pod`
 
 ## Updating deployments and pods
 
@@ -83,3 +97,14 @@
 > `kubectl rollout undo deployment examplehttpapp`
 
 - reverses the edit by 1 change
+
+## Curling services
+
+> `kubectl get services`
+>
+> `kubectl get services -l app=examplehttpapp -o go-template='{{(index .items 0).spec.clusterIP}}'`
+>
+> `curl <service-cluster-ip>`
+
+- one way to do this is by retrieving the cluster IP of a service via services
+- another is by retrieving template values
