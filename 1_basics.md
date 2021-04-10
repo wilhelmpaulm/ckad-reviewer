@@ -1,5 +1,14 @@
 # Basics
 
+## Top Level
+
+> `kubectl run hello-minikube`
+> 
+> `kubectl cluster-info`
+> 
+> `kubectl get nodes`
+
+
 ## Holy Grail
 
 > `kubectl run XXX --image=XXX --restart=Never --dry-run -o yaml > qXXX.yaml`
